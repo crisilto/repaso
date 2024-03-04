@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: monospace;
+    background-color: #f4f4f4;
+}
+
+header{
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+table{
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+    border: 2px solid #ddd;
+}
+
+th{
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr:hover{
+    background-color: #ddd;
+}
+
+.notas th, .horario th, .horario td{
+    text-align: center;
+}
+
+.recreo{
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+}

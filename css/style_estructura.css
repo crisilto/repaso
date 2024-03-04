@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Añadido para calcular padding y border dentro del ancho y alto del elemento*/
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
+    margin: 40px;
+    color: #333; /*Color de texto general*/
+}
+
+header#top, nav, #articulos, aside#sidebar, footer#pie {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px; /*Bordes redondeados*/
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /*Sombra suave para cada sección*/
+}
+
+header#top {
+    text-align: center;
+    background-color: #007bff;
+    color: #ffffff; /*Texto blanco para el encabezado*/
+}
+
+nav {
+    text-align: center;
+}
+
+nav h2, aside header h3, article header h2 {
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px; /*Espacio entre elementos del menú*/
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff; /*Color para enlaces del menú*/
+    padding: 8px 16px; /*Padding para hacer los enlaces más grandes*/
+}
+
+nav a:hover {
+    background-color: #0056b3;
+    color: #ffffff; /*Efecto hover para enlaces del menú*/
+}
+
+#articulos {
+    float: left;
+    width: calc(100% - 250px); /*Ancho menos el aside*/
+    padding: 20px;
+}
+
+article {
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 5px solid #007bff; /*Barra lateral para artículos*/
+}
+
+aside#sidebar {
+    float: right;
+    width: 200px; /*Ancho fijo para el aside*/
+}
+
+aside ul {
+    list-style-type: none;
+}
+
+aside ul li a {
+    display: block;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px; /*Espacio entre enlaces de aside*/
+    text-decoration: none;
+}
+
+aside ul li a:hover {
+    background-color: #0056b3; /*Efecto hover para enlaces de aside*/
+}
+
+footer#pie {
+    clear: both; /*Limpia floats*/
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: #ffffff; /*Texto blanco para el footer*/
+}
