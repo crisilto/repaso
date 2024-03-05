@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*Creamos tres columnas de igual tamaño*/
+    grid-gap: 20px; /*Establecemos el espaciado entre las celdas del grid, tanto filas como columnas*/
+    padding: 10px; /*Este padding es para el contenedor y no afecta el espaciado entre ítems generado por grid-gap*/
+}
+
+.grid-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding: 70px;
+}
