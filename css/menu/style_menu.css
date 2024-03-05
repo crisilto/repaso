@@ -1,0 +1,45 @@
+/* Reset básico para quitar márgenes y paddings por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Fuente más legible */
+    background-color: #f4f4f4; /* Color de fondo suave */
+    padding: 20px; /* Espaciado alrededor del contenido */
+}
+
+h1 {
+    color: #333; /* Color oscuro para el título */
+    text-align: center; /* Centrar el título */
+    margin-bottom: 20px; /* Espaciado debajo del título */
+}
+
+nav {
+    background-color: #333; /* Fondo oscuro para la barra de navegación */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+ul {
+    list-style-type: none; /* Remover los puntos de la lista */
+    display: flex; /* Disposición en línea de los elementos */
+    justify-content: center; /* Centrar los elementos horizontalmente */
+}
+
+li {
+    margin: 10px 150px; /* Espaciado entre elementos de la lista */
+}
+
+a {
+    text-decoration: none; /* Quitar subrayado de los enlaces */
+    color: white; /* Color de texto blanco */
+    padding: 10px 15px; /* Espaciado alrededor del texto dentro del enlace */
+    border-radius: 5px; /* Bordes redondeados para los enlaces */
+    transition: background-color 0.3s; /* Transición suave del color de fondo al pasar el ratón */
+}
+
+a:hover {
+    background-color: #555; /* Cambiar color de fondo al pasar el ratón */
+}

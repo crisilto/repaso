@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    background-color: #f8f8f8;
+}
+
+.flex-centrado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    margin-bottom: 20px; 
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /*Para asegurarnos de que el contenedor se extienda por todo el ancho*/
+}
+
+.caja {
+    background-color: skyblue;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}

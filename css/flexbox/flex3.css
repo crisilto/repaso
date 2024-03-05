@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .caja {
+    flex: 1 1 150px; /*Las cajas tratarán de ser de 150px pero pueden encogerse.*/
+    height: 100px;
+    margin: 5px;
+    background-color: skyblue;
+    text-align: center;
+    line-height: 100px;
+  }
+  

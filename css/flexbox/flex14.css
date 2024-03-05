@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.fila {
+    display: flex;
+    margin-bottom: 20px; /*Espaciado entre las filas*/
+}
+
+.elemento {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    margin-right: 10px; /*Espaciado entre los elementos*/
+}
+
+/*Ajusta el último elemento de cada fila para que no tenga margen a la derecha*/
+.fila .elemento:last-child {
+    margin-right: 0;
+}

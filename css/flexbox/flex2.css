@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    min-height: 100vh; /*Altura mínima de 100% de la altura del viewport*/
+    display: flex;
+    flex-direction: column; /*Organizamos los hijos en columna*/
+    justify-content: center; /*Centramos los hijos en el eje de las Y*/
+    align-items: center; /*Centramos los hijos en el eje de las X*/
+    background-color: #f8f8f8;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-between; /*Espacio uniforme entre elementos*/
+    align-items: center; /*Centrar elementos en el eje transversal*/
+    width: 80%; 
+    padding: 20px; /*Espaciado dentro del contenedor*/
+}
+
+.caja {
+    background-color: skyblue;
+    color: #fff;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}

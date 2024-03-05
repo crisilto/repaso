@@ -1,0 +1,61 @@
+/* Estilos generales para el cuerpo */
+body {
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    background-color: #f0f0f0;
+}
+
+/* Estilo de la tarjeta */
+.tarjeta {
+    width: 300px; /* Ancho de la tarjeta */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    overflow: hidden; /* Oculta el contenido que se desborde de los bordes redondeados */
+    margin: 20px;
+}
+
+/* Estilo del título */
+.titulo {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    padding: 15px; /* Espaciado interior */
+    background-color: #f7f7f7; /* Fondo ligeramente gris */
+    border-bottom: 1px solid #eaeaea; /* Borde inferior */
+}
+
+/* Estilo del cuerpo */
+.cuerpo {
+    padding: 15px; /* Espaciado interior */
+    text-align: center; /* Centrar el texto */
+}
+
+.cuerpo img {
+    max-width: 100%; /* Asegura que la imagen no se desborde de la tarjeta */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+    margin-bottom: 15px; /* Espaciado debajo de la imagen */
+}
+
+/* Estilo del pie */
+.pie {
+    padding: 10px; /* Espaciado interior */
+    text-align: center; /* Centrar el texto */
+    background-color: #f7f7f7; /* Fondo ligeramente gris */
+    border-top: 1px solid #eaeaea; /* Borde superior */
+}
+
+.pie a {
+    color: #007bff; /* Color del enlace */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.pie a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}

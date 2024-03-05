@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.contenedor {
+    display: flex;
+    align-items: center; /*Podemos cambiar entre flex-start, flex-end, center, baseline, stretch para ver las diferencias*/
+    height: 300px; /*Altura suficiente para ver el efecto de align-items*/
+    background-color: #f7f7f7;
+    padding: 10px;
+}
+
+.caja {
+    width: 100px;
+    background-color: skyblue;
+    text-align: center;
+    margin: 5px;
+}

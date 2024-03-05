@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.contenedor {
+    display: flex;
+}
+
+.columna {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 20px;
+    flex: 1; /*Las columnas laterales toman 1 parte del espacio disponible*/
+}
+
+.columna-central {
+    background-color: #e7e7e7;
+    flex: 2; /*La columna central toma 2 partes del espacio disponible, haciéndola el doble de ancha*/
+}

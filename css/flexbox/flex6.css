@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start; /*Alineación por defecto para todos los ítems*/
+}
+
+.caja {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-alineada {
+    align-self: flex-end; /*Esto anula la alineación por defecto solo para esta caja*/
+}

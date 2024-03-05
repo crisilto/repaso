@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding-bottom: 50px; /*Espacio adicional para asegurar que el contenido no quede oculto detrás del footer*/
+}
+
+.contenido {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed; /*Fija el footer en la parte inferior de la pantalla*/
+    bottom: 0; /*Asegura que el footer esté siempre en el fondo*/
+    left: 0;
+}
