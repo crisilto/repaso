@@ -1,0 +1,1 @@
+//Crea un script que añada dinámicamente un elemento a tu página web con un mensaje de bienvenida.

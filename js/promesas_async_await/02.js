@@ -1,0 +1,1 @@
+//Utiliza async/await para trabajar con promesas de una manera más clara y limpia, por ejemplo, al consumir una API.

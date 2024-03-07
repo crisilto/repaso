@@ -1,0 +1,1 @@
+--• Crear una nueva tabla: Escribe una consulta SQL para crear una nueva tabla con las columnas y tipos de datos adecuados.

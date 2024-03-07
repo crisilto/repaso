@@ -1,0 +1,2 @@
+--• Modificar una tabla existente: Utiliza la instrucción ALTER TABLE para agregar, modificar o eliminar columnas de una tabla existente 
+--  según sea necesario.

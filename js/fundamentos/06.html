@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el número</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //Crea un pequeño juego de adivinanzas donde el usuario tenga que adivinar un número generado aleatoriamente.
+        const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        const intentosMaximos = 10;
+
+        function iniciarJuego() {
+            for (let i = 0; i < intentosMaximos; i++) {
+                let numeroUsuario = prompt("Adivina el número entre 1 y 100:")
+                numeroUsuario = Number(numeroUsuario);
+
+                if (numeroUsuario === numeroAleatorio) {
+                    alert(`¡Enhorabuena! Has adivinado el número ${numeroAleatorio}`)
+                    return;
+                } else if (numeroUsuario < numeroAleatorio) {
+                    alert("Demasiado bajo. Inténtalo de nuevo.")
+                } else if (numeroUsuario > numeroAleatorio) {
+                    alert("Demasiado alto. Inténtalo de nuevo")
+                }
+                if (i === intentosMaximos - 1) {
+                    alert(`Lo siento, has alcanzado el máximo de intentos. El número a adivinar era el número ${numeroAleatorio}`);
+                }
+            }
+        }
+
+        iniciarJuego();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+--• Eliminar una tabla: Utiliza la instrucción DROP TABLE para eliminar una tabla completa y todos sus datos.
