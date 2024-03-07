@@ -1,1 +1,0 @@
-//Crea un array con tus películas favoritas y muestra cada una con un bucle.

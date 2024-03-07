@@ -1,1 +1,0 @@
-//Define un objeto que represente un libro, incluyendo propiedades como título, autor, año, y un método que muestre un resumen del libro.
