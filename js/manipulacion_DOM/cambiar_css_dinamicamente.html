@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar estilos CSS dinámicamente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        label,
+        input,
+        button {
+            margin: 10px 0;
+        }
+
+        #parrafoEjemplo {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Crea una interfaz que permita al usuario cambiar dinámicamente el tamaño de fuente y el color del texto de un párrafo de muestra 
+        en la página.-->
+    <h2>Modifica el párrafo</h2>
+    <label for="tamañoFuente">Tamaño de Fuente:</label>
+    <input type="number" id="tamañoFuente" value="16" min="10" max="40">px
+    <br>
+    <label for="colorTexto">Color del Texto:</label>
+    <input type="color" id="colorTexto" value="#000000">
+    <br>
+    <button onclick="aplicarEstilos()">Aplicar Estilos</button>
+
+    <p id="parrafoEjemplo">Este es un párrafo de ejemplo. Cambia el tamaño de la fuente y el color del texto usando los
+        controles de arriba.</p>
+
+    <script type="text/javascript">
+        function aplicarEstilos() {
+            let tamañoFuente = document.getElementById("tamañoFuente").value + "px";
+            let colorTexto = document.getElementById("colorTexto").value;
+            let parrafo = document.getElementById("parrafoEjemplo");
+
+            parrafo.style.fontSize = tamañoFuente;
+            parrafo.style.color = colorTexto;
+        }
+    </script>
+</body>
+
+</html>

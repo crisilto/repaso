@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Mi Lista de Tareas</h1>
+    <input type="text" id="tareaInput" placeholder="Añade una nueva tarea">
+    <button id="btnAgregar">Añadir Tarea</button>
+    <ul id="listaTareas"></ul>
+
+    <script type="text/javascript">
+        /*
+        Implementa una simple lista de tareas. Deberías ser capaz de:
+        Añadir una nueva tarea desde un campo de entrada.
+        Marcar una tarea como completada al hacer clic en ella.
+        Eliminar una tarea con un botón de eliminar al lado de cada tarea.
+        */
+       document.getElementById('btnAgregar').addEventListener('click', function(){
+        const tareaInput = document.getElementById('tareaInput');
+        const nuevaTarea = tareaInput.value.trim();
+
+        if(nuevaTarea){
+            //Creamos elemento de lista <li>
+            const li = document.createElement('li');
+            li.textContent = nuevaTarea;
+
+            //Añadimos evento para marcar como completado
+            li.addEventListener('click', function(){
+                this.classList.toggle('completado');
+            });
+
+            //Creamos botón de eliminar
+            const btnEliminar = document.createElement('button');
+            btnEliminar.textContent = 'Eliminar';
+            btnEliminar.addEventListener('click', function(){
+                this.parentElement.remove();
+            });
+
+            //Añadimos el botón de eliminar al evento de la lista
+            li.appendChild(btnEliminar);
+
+            //Añadimos el nuevo elemento de lista a la lista de tareas
+            document.getElementById('listaTareas').appendChild(li);
+
+            //Limpiamos el campo de entrada
+            tareaInput.value = '';
+        }else{
+            alert('Por favor, debes escribir una tarea');
+        }
+       });
+    </script>
+</body>
+</html>

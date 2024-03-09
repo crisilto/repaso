@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de búsqueda</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        header,
+        nav,
+        main {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px;
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            background-color: #f6f6f6;
+        }
+
+        li:hover {
+            background-color: #e9e9e9;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Dada una lista de nombres mostrados en la página, implementa un campo de búsqueda que filtre los nombres mostrados en tiempo real 
+        según el input del usuario.-->
+    <header>
+        <h1>Filtro de búsqueda</h1>
+    </header>
+    <nav>
+        <h2>Menú de navegación</h2>
+        <ul>
+            <li><a href="#top">Encabezado</a></li>
+        </ul>
+    </nav>
+    <main>
+        <input type="text" id="campoBusqueda" placeholder="Introduce tu nombre" onkeyup="nombresFiltrados()">
+        <h2>Lista de nombres</h2>
+        <ul id="listaNombres">
+            <li>Carlos</li>
+            <li>Carla</li>
+            <li>Francisco</li>
+            <li>Francisca</li>
+            <li>Juan</li>
+        </ul>
+    </main>
+
+    <script type="text/javascript">
+        function nombresFiltrados() {
+            let input, filtro, ul, li, a, i, txtValue;
+            input = document.getElementById("campoBusqueda");
+            filtro = input.value.toUpperCase();
+            ul = document.getElementById("listaNombres");
+            li = ul.getElementsByTagName("li");
+
+            for (i = 0; i < li.length; i++) {
+                txtValue = li[i].textContent || li[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filtro) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

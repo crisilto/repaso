@@ -1,1 +1,0 @@
-//Implementa una función que cambie el color de fondo de una página o elemento al hacer clic en un botón.

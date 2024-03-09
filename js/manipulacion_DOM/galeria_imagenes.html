@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+            background-color: #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #333;
+            margin: 50px 0px;
+        }
+
+        .galeria img {
+            width: 300px;
+            height: auto;
+            max-height: 150px;
+            object-fit: cover;
+            margin: 10px 30px;
+            transition: transform 0.2s;
+        }
+
+
+        .galeria img:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            /*Oculto por defecto*/
+            position: fixed;
+            z-index: 1;
+            /*Encima de todo*/
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-contenido {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cerrar:hover,
+        .cerrar:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Galería de Imágenes</h1>
+    </header>
+    <div class="galeria">
+        <img src="img/1673121316107.jpg" alt="gato1" class="imagen-pequeña">
+        <img src="img/abc-cuidado-de-los-gatos-min.jpg" alt="gato2" class="imagen-pequeña">
+        <img src="img/curiosidades-sobre-la-inteligencia-de-los-gatos.jpg" alt="gato3" class="imagen-pequeña">
+        <img src="img/d91b850d-33b1-494b-8a99-ee54de862711_16-9-discover-aspect-ratio_default_0.jpg" alt="gato4"
+            class="imagen-pequeña">
+        <img src="img/1673121316107.jpg" alt="gato1" class="imagen-pequeña">
+    </div>
+
+    <div id="modal" class="modal">
+        <span id="cerrar" class="cerrar">&times;</span>
+        <img class="modal-contenido" id="imagenAmpliada">
+        <div id="descripcionImagen" class="descripcion"></div>
+    </div>
+
+    <script type="text/javascript">
+        //Obtenemos todas las imágenes pequeñas
+        let imgs = document.getElementsByClassName('imagen-pequeña');
+
+        //Obtenemos el modal
+        let modal = document.getElementById('modal');
+
+        //Obtenemos la imagen dentro del modal
+        let modalImg = document.getElementById('imagenAmpliada');
+
+        //Obtenemos el elemento que cierra el modal
+        let cerrar = document.getElementById('cerrar');
+
+        //Iteramos a través de todas las imágenes pequeñas
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src; //Establecemos la fuente de la imagen en el modal
+            }
+        }
+
+        //Cuando se haga clic en (x), se cierra el modal
+        cerrar.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        //Si se clicka fuera de la imagen, se cierra el modal
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+    </script>
+
+</body>
+
+</html>

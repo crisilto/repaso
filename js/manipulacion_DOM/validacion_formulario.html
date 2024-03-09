@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación formulario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: monospace;
+        }
+
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 95%;
+            padding: 8px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Crea un formulario con varios campos (como nombre, email, contraseña). Realiza la validación de estos campos en el lado del cliente:
+            El nombre debe tener al menos 3 caracteres.
+            El email debe tener un formato válido.
+            La contraseña debe tener al menos 8 caracteres.
+        Muestra mensajes de error específicos junto a cada campo si la validación falla cuando el usuario intenta enviar el formulario.
+    -->
+    <form onsubmit="return validarFormulario()">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <span class="error" id="errorNombre"></span>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="errorEmail"></span>
+        </div>
+        <div>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+            <span class="error" id="errorContraseña"></span>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+
+    <script type="text/javascript">
+        document.getElementById("miFormulario").onsubmit = function (event) {
+            let isValid = validarFormulario();
+            if (!isValid) {
+                event.preventDefault();
+            }
+        };
+        function validarFormulario() {
+            let nombre = document.getElementById("nombre").value;
+            let email = document.getElementById("email").value;
+            let contraseña = document.getElementById("contraseña").value;
+            let error = false;
+
+            //Limpiamos mensajes de error anteriores
+            document.getElementById("errorNombre").textContent = "";
+            document.getElementById("errorEmail").textContent = "";
+            document.getElementById("errorContraseña").textContent = "";
+
+            if (nombre.length < 3) {
+                document.getElementById("errorNombre").textContent = "El nombre debe tener al menos 3 caracteres";
+                error = true;
+            }
+            if (email.indexOf("@") == -1) {
+                document.getElementById("errorEmail").textContent = "El email debe tener un formato válido";
+                error = true;
+            }
+            if (contraseña.length < 8) {
+                document.getElementById("errorContraseña").textContent = "La contraseña debe tener al menos 8 caracteres";
+                error = true;
+            }
+
+            if (error) {
+                return false; //Evitamos que el formulario se envíe
+            }
+            return true;
+        }
+
+    </script>
+</body>
+
+</html>

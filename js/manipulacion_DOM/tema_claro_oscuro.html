@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --color-fondo: #FFFFFF;
+            --color-texto: #000000;
+        }
+
+        body {
+            font-family: monospace;
+            font-size: 18px;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background-color: #555555;
+            color: white;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #333333;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--Implementa un botón que cambie el tema de la página entre claro y oscuro. 
+        Esto debería cambiar el color de fondo y el color del texto de la página.-->
+        <header>
+            <h1>¿Claro o Oscuro?</h1>
+        </header>
+        <button onclick="cambiarTema()">Cambiar Tema</button>
+        <script>
+            function cambiarTema() {
+                var colorFondo = document.body.style.backgroundColor;
+                if (colorFondo === "rgb(0, 0, 0)") {
+                    document.body.style.backgroundColor = "#FFFFFF";
+                    document.body.style.color = "#000000";
+                } else {
+                    document.body.style.backgroundColor = "#000000";
+                    document.body.style.color = "#FFFFFF";
+                }
+            }
+        </script>
+    </body>
+    </html>

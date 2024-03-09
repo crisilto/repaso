@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear y destruir elementos</title>
+    <style>
+        body {
+            font-family: monospace;
+            margin: 20px;
+            padding: 20px;
+        }
+    
+        h1 {
+            color: #333;
+        }
+    
+        #btnAñadir, #btnEliminar {
+            background-color: #4CAF50; 
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+        #btnEliminar {
+            background-color: #f44336; 
+        }
+    
+        #btnAñadir:hover, #btnEliminar:hover {
+            opacity: 0.9;
+        }
+    
+        #contenedorElementos {
+            margin-top: 20px;
+        }
+    
+        .elemento-dinamico {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!--
+        Crea una página que contenga un botón "Añadir elemento" y un botón "Eliminar último elemento". 
+        Al hacer clic en "Añadir elemento", debe añadirse un nuevo div con algún contenido y un número que indique su orden 
+        (por ejemplo, Elemento 1, Elemento 2, etc.). 
+        El botón "Eliminar último elemento" debe eliminar el último elemento añadido.
+    -->
+    <h1>Crear y destruir elementos</h1>
+    <button id="btnAñadir">Añadir un elemento</button>
+    <button id="btnEliminar">Eliminar un elemento</button>
+    <div id="contenedorElementos"></div> <!--Contenedor para los elementos añadidos-->
+
+    <script type="text/javascript">
+        let contador = 1; //Contador para que lleve la cuenta de los elementos añadidos
+
+        document.getElementById('btnAñadir').addEventListener('click', function () {
+            let div = document.createElement('div');
+            div.textContent = 'Elemento ' + contador++;
+            div.setAttribute('class', 'elemento-dinamico'); //Añadir clase para estilizar si se desea
+            document.getElementById('contenedorElementos').appendChild(div);
+        });
+
+        document.getElementById('btnEliminar').addEventListener('click', function () {
+            let contenedor = document.getElementById('contenedorElementos');
+            if (contenedor.lastChild) {
+                contenedor.removeChild(contenedor.lastChild);
+                contador--; //Ajustar el contador hacia abajo
+            }
+        });
+    </script>
+</body>
+
+</html>

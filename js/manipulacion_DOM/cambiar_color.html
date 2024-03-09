@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color</title>
+    <style>
+        body {
+            background-color: #000000;
+            font-family: monospace;
+        }
+        button {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="cambiarColor()">Cambiar color</button>
+    <script type="text/javascript">
+        //Implementa una función que cambie el color de fondo aleatoriamente de una página o elemento al hacer clic en un botón.
+        function cambiarColor(){
+            const colores = ["red", "green", "blue", "yellow", "orange", "purple"];
+            const color = colores[Math.floor(Math.random() * colores.length)];
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>

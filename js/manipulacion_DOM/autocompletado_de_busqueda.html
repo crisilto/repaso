@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocompletado de Búsqueda</title>
+    <style>
+        body {
+            font-family: monospace;
+        }
+    
+        header h1 {
+            text-align: center;
+        }
+    
+        form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        #resultado {
+            width: 300px;
+            margin: auto;
+            position: absolute;
+            z-index: 1000;
+            border: 1px solid #ccc;
+            border-top: none; /*Para que se una al input sin doble borde*/
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: white;
+            overflow: hidden; /*Para que se apliquen los bordes redondeados*/
+        }
+    
+        #resultado p {
+            margin: 0;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+    
+        #resultado p:last-child {
+            border-bottom: none;
+        }
+    
+        #resultado p:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <header>
+        <h1>Autocompletado de Búsqueda</h1>
+    </header>
+    <!--Crea un campo de búsqueda que, mientras el usuario escribe, sugiera resultados de búsqueda posibles debajo del campo. 
+        Los resultados pueden ser simplemente palabras o frases almacenadas en un array en tu JavaScript.-->
+    <form>
+        <input type="text" id="buscar" placeholder="Buscar...">
+    </form>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        let palabras = [
+            "programación",
+            "javascript",
+            "html",
+            "css",
+            "php",
+            "java",
+            "python",
+            "ruby",
+            "go",
+            "swift"
+        ];
+
+        let buscar = document.getElementById("buscar");
+        let resultado = document.getElementById("resultado");
+
+        //Escucha el evento keyup para el input de búsqueda
+        buscar.addEventListener("keyup", function (e) {
+            let entrada = buscar.value.toLowerCase();
+            resultado.innerHTML = ""; //Limpiamos resultados anteriores
+            if (entrada) { //Verificamos que la entrada no esté vacía
+                for (let palabra of palabras) {
+                    //Comprobamos si la palabra comienza con la entrada del usuario
+                    if (palabra.toLowerCase().startsWith(entrada)) {
+                        resultado.innerHTML += "<p>" + palabra + "</p>";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
