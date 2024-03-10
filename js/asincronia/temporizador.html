@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador de Conteo Regresivo</title>
+</head>
+<body>
+    <!--Crea una función que actúe como un temporizador, usando setTimeout para contar hacia atrás desde un número dado hasta 0, 
+        imprimiendo cada número en la consola con intervalos de 1 segundo.-->
+    <script type="text/javascript">
+        function temporizador(numero){
+            //Imprimimos el número actual
+            console.log(numero);
+            //Verificamos que el número es mayor que cero
+            if(numero > 0){
+                //Si lo es, esperamos un segundo y luego llamamos de nuevo a la función con el número en i
+                setTimeout(() =>{
+                    temporizador(numero - 1);
+                }, 1000);
+            }
+        }
+
+        //Llamamos a la funcion con el número inicial desde el cual deseamos comenzar el conteo regresivo
+        temporizador(5);
+    </script>
+</body>
+</html>

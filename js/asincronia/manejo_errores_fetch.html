@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador y Fetch API</title>
+</head>
+
+<body>
+    <!--Modifica el ejercicio solicitud_datos_falsos.html para manejar errores en las solicitudes fetch. Asegúrate de capturar tanto 
+        los errores de red como las respuestas no exitosas del servidor (por ejemplo, cuando el servidor responde con un estado 404).-->
+    <h1>Usuarios y sus Publicaciones</h1>
+    <button id="cargarUsuarios">Cargar Usuarios y Publicaciones</button>
+    <div id="usuarios"></div>
+    <div id="publicaciones"></div>
+    <div id="errores" style="color: red;"></div>
+
+    <script type="text/javascript">
+        //Función para obtener usuarios
+        function obtenerUsuarios() {
+            return fetch('https://jsonplaceholder.typicode.com/usuarios') //Cambiamos users por usuarios, que no existe, entraremos en error
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error al obtener los usuarios: ${response.status}`);
+                    }
+                    return response.json();
+                });
+        }
+
+        //Función para obtener publicaciones de un usuario específico
+        function obtenerPublicacionesDeUsuario(userId) {
+            return fetch(`https://jsonplaceholder.typicode.com/publicaciones?userId=${userId}`)//Cambiamos post por publicaciones, que no existe
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error al obtener las publicaciones del usuario: ${response.status}`);
+                    }
+                    return response.json();
+                });
+        }
+
+        document.getElementById('cargarUsuarios').addEventListener('click', () => {
+            obtenerUsuarios()
+                .then(usuarios => {
+                    const usuariosDiv = document.getElementById('usuarios');
+                    usuariosDiv.innerHTML = '<h2>Usuarios:</h2>';
+                    usuarios.forEach(usuario => {
+                        usuariosDiv.innerHTML += '<p>${usuario.name}</p>';
+                    });
+
+                    //Asumimos que queremos las publicaciones del primer usuario
+                    return obtenerPublicacionesDeUsuario(usuarios[0].id);
+                })
+                .then(publicaciones => {
+                    const publicacionesDiv = document.getElementById('publicaciones');
+                    publicacionesDiv.innerHTML = '<h2>Publicaciones del Primer Usuario:</h2>';
+                    publicaciones.forEach(publicacion => {
+                        publicacionesDiv.innerHTML += '<p>${publicacion.title}</p>';
+                    });
+                })
+                .catch(error => {
+                    console.log('Hubo un error', error);
+                    document.getElementById('errores').innerHTML = `Se produjo un error: ${error.message}`;
+                });
+        });
+    </script>
+</body>
+
+</html>

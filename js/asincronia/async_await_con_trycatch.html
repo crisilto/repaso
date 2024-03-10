@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await con Try/Catch</title>
+</head>
+
+<body>
+    <!--Reescribe el ejercicio encadenamiento_de_promesas.html usando async/await en lugar de .then(). 
+        Asegúrate de manejar los errores con bloques try/catch.-->
+    <h1>Resultado de Async/Await</h1>
+    <div id="resultado"></div>
+
+    <script type="text/javascript">
+        //Primera operación asíncrona: sumar 5 al número dado
+        function sumaCinco(numero) {
+            return new Promise((resolve) => {
+                setTimeout(() => resolve(numero + 5), 1000);
+            });
+        }
+
+        //Segunda operación asíncrona: multiplica el número dado por 2
+        function multiplicarDos(numero) {
+            return new Promise((resolve) => {
+                setTimeout(() => resolve(numero * 2), 1000);
+            });
+        }
+
+        //Tercera operación asíncrona: resta 4 al número dado
+        function restarCuatro(numero) {
+            return new Promise((resolve) => {
+                setTimeout(() => resolve(numero - 4), 1000);
+            });
+        }
+
+        //Función asíncrona para encadenar operaciones con try/catch para manejar errores
+        async function realizarOperaciones(){
+            try{
+                let resultado = await sumaCinco(10);
+                resultado = await multiplicarDos(resultado);
+                resultado = await restarCuatro(resultado);
+                document.getElementById('resultado').innerHTML = `El resultado final es ${resultado}`
+            }catch(error){
+                console.error(`Error en la cadena de operaciones: ${error}`);
+                document.getElementById('resultado').innerHTML = `Se produjo un error: ${error}`
+            }
+        }
+
+        //Ejecutamos la función asíncrona
+        realizarOperaciones();
+    </script>
+</body>
+
+</html>

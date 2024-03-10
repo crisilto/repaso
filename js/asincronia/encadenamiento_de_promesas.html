@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encadenamiento de Promesas</title>
+</head>
+<body>
+    <!--Realiza tres operaciones asíncronas en secuencia, donde la salida de una es la entrada de la siguiente, usando promesas y .then().-->
+    <h1>Resultado de Encadenamiento de Promesas</h1>
+    <div id="resultado"></div>
+
+    <script type="text/javascript">
+        //Primera operación asíncrona: sumar 5 al número dado
+        function sumaCinco(numero){
+            return new Promise((resolve) => {
+                setTimeout(() => resolve(numero + 5), 1000);
+            });
+        }
+
+        //Segunda operación asíncrona: multiplica el número dado por 2
+        function multiplicarDos(numero){
+            return new Promise((resolve) => {
+                setTimeout(() => resolve(numero * 2), 1000);
+            });
+        }
+
+        //Tercera operación asíncrona: resta 4 al número dado
+        function restarCuatro(numero){
+            return new Promise((resolve) => {
+                setTimeout(() => resolve(numero - 4), 1000);
+            });
+        }
+
+        //Encadenamiento de las operaciones
+        sumaCinco(10)
+        .then(resultado => multiplicarDos(resultado))
+        .then(resultado => restarCuatro(resultado))
+        .then(resultadoFinal => {
+             document.getElementById("resultado").innerHTML = `El resultado final es: ${resultadoFinal}`;
+        })
+        .catch(error => {
+            console.error(`Error en la cadena de promesas: ${error}`)
+        });
+    </script>
+</body>
+</html>

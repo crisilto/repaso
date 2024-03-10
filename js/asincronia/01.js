@@ -1,1 +1,0 @@
-//Utiliza fetch para consumir una API simple y mostrar los resultados en tu página (puede ser la API de JSONPlaceholder para empezar).

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrasos Variables con Async/Await</title>
+</head>
+<body>
+    <!--Utiliza async/await para escribir una función que realice una operación asíncrona (por ejemplo, una solicitud de API), 
+        pero que reintente automáticamente la operación con un retraso que se incrementa después de cada fallo, hasta un máximo de intentos.-->
+    <h1>Operación Asincrónica con Retrasos Variables</h1>
+    <div id="resultado"></div>
+
+    <script type="text/javascript">
+        const resultadoDiv = document.getElementById("resultado");
+
+        //Simulamos una operación asíncrona que puede fallar
+        async function operacionAsincrona(){
+            //Simula una probabilidad de 50% de fallo
+            if(Math.random() > 0.5){
+                throw new Error('La operación falló');
+            }
+            return 'Operación completada con éxito';
+        }
+
+        //Retornamos una promesa que se resuelve después de un cierto retraso
+        function esperar(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        //Intentamos realizar la operación asíncrona con reintentos y retrasos incrementales
+        async function operacionConReintentos(intentosMax = 5, retrasoInicial = 1000){
+            let intentos = 0;
+            let retraso = retrasoInicial;
+
+            while(intentos < intentosMax){
+                intentos++;
+                try{
+                    const resultados = await operacionAsincrona();
+                    resultadoDiv.innerHTML = `${resultado} en el intento ${intentos}.`;
+                    return;
+                }catch(error){
+                    resultadoDiv.innerHTML = `Intento ${intentos}: ${error.message}. Reintentando en ${retraso} ms...`;
+                    await esperar(retraso);
+                    retraso *= 2; //Con esto se duplicará el retraso para el próximo intento
+                }
+            }
+
+            resultadoDiv.innerHTML = 'La operación ha fallado después del máximo número de intentos.';
+        }
+
+        operacionConReintentos().then(() => console.log('Proceso completado.'))
+    </script>
+</body>
+</html>

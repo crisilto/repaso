@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesamiento en paralelo</title>
+</head>
+
+<body>
+    <!--Haz dos o más solicitudes de red en paralelo con Promise.all y muestra los resultados en tu página una vez que todas hayan finalizado.-->
+    <h1>Resultados de Solicitudes en Paralelo</h1>
+    <div id="posts">
+        <h2>Publicaciones</h2>
+    </div>
+    <div id="comments">
+        <h2>Comentarios</h2>
+    </div>
+
+    <script type="text/javascript">
+        //Función para realizar una solicitud HTTP GET
+        function fetchUrl(url){
+            return fetch(url).then(response => response.json());
+        }
+
+        //URLs de la API de prueba
+        const postsUrl = "https://jsonplaceholder.typicode.com/posts";
+        const commentsUrl = "https://jsonplaceholder.typicode.com/comments";
+        
+        Promise.all([fetchUrl(postsUrl), fetchUrl(commentsUrl)])
+        .then(([posts, comments]) => {
+            //Mostrar las primeras 5 publicaciones
+            const postsContainer = document.getElementById('posts');
+            posts.slice(0, 5).forEach(post => {
+                const postElement = document.createElement('p');
+                postElement.textContent = `Post ${post.id}: ${post.title}`;
+                postsContainer.appendChild(postElement);
+            });
+
+            //Mostrar los primeros 5 comentarios
+            const commentsContainer = document.getElementById('comments');
+            comments.slice(0, 5).forEach(comment => {
+                const commentElement = document.createElement('p');
+                commentElement.textContent = `Comentario ${comment.id} en post ${comment.postId}: ${comment.name}`;
+                commentsContainer.appendChild(commentElement);
+            });
+        })
+        .catch(error => {
+            console.error(`Error al realizar las solicitudes: ${error}`);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,1 +1,0 @@
-//Implementa una función que use setTimeout para simular una operación que tarda en completarse, como cargar datos.

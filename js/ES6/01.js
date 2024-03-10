@@ -1,1 +1,0 @@
-//Practica el uso de let, const, plantillas literales (template literals), funciones flecha (arrow functions), y desestructuración.

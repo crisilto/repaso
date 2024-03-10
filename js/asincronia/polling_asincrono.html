@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polling Asíncrono</title>
+</head>
+<body>
+    <!--Crea una función de polling que solicite datos de una API cada 5 segundos, pero que detenga el polling después de obtener 
+        una respuesta específica o después de un número máximo de intentos.-->
+    <h1>Polling a una API</h1>
+    <div id="response"></div>
+
+    <script type="text/javascript">
+        const responseDiv = document.getElementById('response');
+
+        //Función para realizar una solicitud a la API
+        function fetchPost(){
+            return fetch('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => response.json());
+        }
+
+        let attempts = 0;
+        const maxAttempts = 10;
+        const targetPostId = 1; //ID del post que estamos buscando
+
+        function startPolling(){
+            attempts++;
+            fetchPost().then(data => {
+                if(data.id === targetPostId){
+                    responseDiv.innerHTML = `Post encontrado: ${data.id} - ${data.title}`;
+                    console.log('Polling detenido: respuesta encontrada');
+                }else if(attempts < maxAttempts){
+                    //No es el post que estamos buscando y no hemos alcanzado el máximo de intentos
+                    setTimeout(startPolling, 5000); //Espera 5 segundos antes del próximo intento
+                }else{
+                    //Máximos intentos alcanzados
+                    responseDiv.innerHTML = 'Polling detenido: máximo de intentos alcanzado';
+                    console.log('Polling detenido: respuesta no encontrada');
+                }
+            }).catch(error => {
+                console.error(`Error al realizar la solicitud: ${error}`);
+                responseDiv.innerHTML = 'Error al realizar la solicitud. Ver consola para más detalles.';
+            });
+        }
+
+        startPolling();
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga de Imagen Asíncrona</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--Carga una imagen de forma asíncrona. Debes mostrar un mensaje de "Cargando..." mientras la imagen se está cargando 
+        y reemplazarlo con la imagen una vez que esté completamente cargada. Maneja el caso de error si la URL de la imagen es incorrecta.-->
+    <div id="loadingMessage">Cargando...</div>
+    <img src="" alt="Imagen Asíncrona" id="dynamicImage" class="hidden" />
+
+    <script type="text/javascript">
+        //Función para cargar una imagen
+        function loadImageAsync(url) {
+            return new Promise((resolve, reject) => {
+                const image = new Image();
+
+                image.onload = () => {
+                    resolve(image);
+                };
+
+                image.onerror = () => {
+                    reject(new Error('No se pudo cargar la imagen.'));
+                };
+
+                image.src = url;
+            });
+        }
+
+        //Reemplazamos el mensaje de carga por la imagen
+        function displayImage(imageElement) {
+            const loadingMessage = document.getElementById('loadingMessage');
+            const dynamicImage = document.getElementById('dynamicImage');
+
+            loadingMessage.classList.add('hidden');
+            dynamicImage.src = imageElement.src;
+            dynamicImage.classList.remove('hidden');
+        }
+
+        //Mostramos un mensaje de error
+        function showError() {
+            document.getElementById('loadingMessage').innerText = 'Error al cargar la imagen';
+        }
+
+        //URL de la imagen a cargar
+        const imageUrl = 'img/1673121316107.jpg';
+
+        //Temporizador de 2 segundos para lograr ver el Cargando previo a la imagen
+        setTimeout(() => {
+            //Intentamos cargar la imagen
+            loadImageAsync(imageUrl)
+            .then(displayImage)
+            .catch(showError);
+        }, 2000);
+    </script>
+</body>
+</html>
