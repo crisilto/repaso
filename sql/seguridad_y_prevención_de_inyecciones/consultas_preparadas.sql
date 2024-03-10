@@ -1,0 +1,1 @@
+--Consultas preparadas: Utiliza consultas preparadas para prevenir la inyección SQL al interactuar con bases de datos desde tu aplicación.
