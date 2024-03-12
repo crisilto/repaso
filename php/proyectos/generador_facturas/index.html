@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de facturas</title>
+</head>
+
+<body>
+    <header>
+        <h1>Generador de facturas</h1>
+    </header>
+    <form action="generar_factura.php" method="post">
+        <label for="nombre_cliente">Nombre del cliente:</label>
+        <input type="text" id="nombre_cliente" name="nombre_cliente" required><br>
+
+        <label for="descripcion_articulo">Descripción del artículo:</label>
+        <input type="text" id="descripcion_articulo" name="descripcion_articulo" required><br>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required><br>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" required><br>
+
+        <input type="submit" value="Generar Factura">
+    </form>
+</body>
+
+</html>
